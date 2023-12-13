@@ -7,10 +7,9 @@ sidebar_position: 3
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
-
 # Client libraries
 
-GoQuorum supports common smart contract and dapp development, deployment, and operational use cases, using tools such as [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started#overview), [web3.js] and [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html). The client supports common [JSON-RPC API](json-rpc-apis.md) methods, for example `eth`, `net`, `web3`, `debug`, and `miner`.
+GoQuorum supports common smart contract and dapp development, deployment, and operational use cases, using tools such as [Hardhat](https://hardhat.org/hardhat-runner/docs/getting-started#overview), [web3.js](https://web3js.org/) and [web3js-quorum](https://consensys.github.io/web3js-quorum/latest/index.html). The client supports common [JSON-RPC API](json-rpc-apis.md) methods, for example `eth`, `net`, `web3`, `debug`, and `miner`.
 
 ## Prerequisites
 
@@ -27,7 +26,7 @@ You can use the Quorum Developer Quickstart to deploy either public contracts or
 
 ## web3
 
-The [web3.js] library is the most widely used for developing applications.
+The [web3.js](https://docs.web3js.org/) library is the most widely used for developing applications.
 
 ### Install web3 in your project
 
@@ -46,14 +45,14 @@ Initialize your client where:
   <TabItem value="HTTP example" label="HTTP example" default>
 
 ```js title="Example connection"
-const Web3 = require("web3");
+const { Web3 } = require("web3");
 const web3 = new Web3("http://some.local.remote.endpoint:8545");
 ```
 
 # WS example
 
 ```js title="Example connection"
-const Web3 = require("web3");
+const { Web3 } = require("web3");
 const web3 = new Web3("http://some.local.remote.endpoint:8546");
 ```
 
@@ -104,7 +103,7 @@ tx.sign(Buffer.from(account.privateKey.substring(2), "hex"));
 console.log("Sending transaction...");
 var serializedTx = tx.serialize();
 const pTx = await web3.eth.sendSignedTransaction(
-  "0x" + serializedTx.toString("hex").toString("hex"),
+  "0x" + serializedTx.toString("hex").toString("hex")
 );
 console.log("tx transactionHash: " + pTx.transactionHash);
 console.log("tx contractAddress: " + pTx.contractAddress);
@@ -185,7 +184,7 @@ const enclaveOptions = {
 const web3 = new Web3Quorum(
   new Web3("<GoQuorum JSON-RPC HTTP endpoint>"),
   enclaveOptions,
-  isQuorum,
+  isQuorum
 );
 ```
 
@@ -210,7 +209,7 @@ const enclaveOptions = {
 const web3 = new Web3Quorum(
   new Web3("http://localhost:8545"),
   enclaveOptions,
-  isQuorum,
+  isQuorum
 );
 ```
 
@@ -235,7 +234,7 @@ const enclaveOptions = {
 const web3 = new Web3Quorum(
   new Web3("http://localhost:8545"),
   enclaveOptions,
-  isQuorum,
+  isQuorum
 );
 ```
 
@@ -271,7 +270,7 @@ const enclaveOptions = {
 const web3 = new Web3Quorum(
   new Web3("http://localhost:8545"),
   enclaveOptions,
-  isQuorum,
+  isQuorum
 );
 ```
 
